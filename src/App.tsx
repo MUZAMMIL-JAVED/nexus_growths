@@ -5,6 +5,7 @@ import {
   TeamSection,
   DemoSection,
   ProcessSection,
+  ContactSection,
 } from "./components/sections";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <TeamSection />
         <DemoSection />
         <ProcessSection />
+        <ContactSection />
       </main>
       <Footer />
     </>
