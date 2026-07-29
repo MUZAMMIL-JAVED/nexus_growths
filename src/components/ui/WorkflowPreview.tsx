@@ -37,7 +37,7 @@ export function WorkflowPreview() {
   }, [visibleSteps]);
 
   return (
-    <div className="mx-auto w-full max-w-3xl text-left">
+    <div className="mx-auto w-full max-w-3xl text-left xl:max-w-4xl">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}

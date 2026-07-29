@@ -165,3 +165,25 @@ body {
   animation: blink 1s step-end infinite;
   margin-left: 2px;
 }
+
+@media (min-width: 1280px) {
+  .hero-cloud-left {
+    width: 480px;
+    height: 480px;
+  }
+  .hero-cloud-right {
+    width: 520px;
+    height: 520px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-cloud-left {
+    width: 600px;
+    height: 600px;
+  }
+  .hero-cloud-right {
+    width: 640px;
+    height: 640px;
+  }
+}

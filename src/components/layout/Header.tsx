@@ -15,7 +15,7 @@ export function Header() {
       transition={{ duration: 0.5 }}
       className="fixed top-0 z-50 flex h-[70px] w-full items-center border-b border-slate-200/60 bg-[#f3f4f8]/85 backdrop-blur-xl"
     >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 xl:max-w-7xl 2xl:max-w-[1536px]">
         <a href="#" className="flex items-center gap-3">
           <img
             src={siteConfig.logo}

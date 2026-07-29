@@ -49,7 +49,7 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="mx-auto max-w-2xl"
+          className="mx-auto max-w-2xl xl:max-w-3xl"
         >
           <ContactForm />
         </motion.div>

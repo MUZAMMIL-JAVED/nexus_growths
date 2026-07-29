@@ -11,12 +11,12 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="hero-card relative overflow-hidden rounded-[2rem] px-6 py-14 sm:px-10 sm:py-16 md:px-14 md:py-20"
+          className="hero-card relative overflow-hidden rounded-[2rem] px-6 py-14 sm:px-10 sm:py-16 md:px-14 md:py-20 xl:px-20 xl:py-24"
         >
           <div className="hero-cloud hero-cloud-left" />
           <div className="hero-cloud hero-cloud-right" />
 
-          <div className="relative z-10 mx-auto max-w-3xl text-center">
+          <div className="relative z-10 mx-auto max-w-3xl text-center xl:max-w-4xl">
             <motion.span
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 }}
-              className="mb-5 text-3xl leading-[1.12] font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+              className="mb-5 text-3xl leading-[1.12] font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] 2xl:text-[4.25rem]"
             >
               Let&apos;s Build an Automation System That Actually Runs Your
               Business
@@ -40,7 +40,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg"
+              className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg xl:max-w-3xl xl:text-xl"
             >
               Tell us what you want to automate or build — we&apos;ll architect
               intelligent n8n pipelines, full-stack web platforms, and mobile
