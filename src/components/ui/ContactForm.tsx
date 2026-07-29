@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { ArrowRight, Send } from "lucide-react";
+import { ArrowRight, Send, Loader2, AlertCircle } from "lucide-react";
 import type { ContactFormData } from "../../types";
 import { Button } from "./Button";
 
@@ -12,11 +12,36 @@ const initialForm: ContactFormData = {
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [form, setForm] = useState<ContactFormData>(initialForm);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error ? err.message : "Network error. Please check your connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -44,6 +69,13 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
     >
+      {errorMessage && (
+        <div className="mb-5 flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4">
+          <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
+          <p className="text-sm text-red-700">{errorMessage}</p>
+        </div>
+      )}
+
       <div className="mb-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-700">
@@ -53,6 +85,7 @@ export function ContactForm() {
             id="name"
             type="text"
             required
+            disabled={isSubmitting}
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             className={inputClass}
@@ -67,6 +100,7 @@ export function ContactForm() {
             id="email"
             type="email"
             required
+            disabled={isSubmitting}
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             className={inputClass}
@@ -82,6 +116,7 @@ export function ContactForm() {
         <input
           id="company"
           type="text"
+          disabled={isSubmitting}
           value={form.company}
           onChange={(e) => setForm({ ...form, company: e.target.value })}
           className={inputClass}
@@ -97,6 +132,7 @@ export function ContactForm() {
           id="message"
           required
           rows={4}
+          disabled={isSubmitting}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className={`${inputClass} resize-none`}
@@ -104,10 +140,25 @@ export function ContactForm() {
         />
       </div>
 
-      <Button type="submit" variant="gradient" className="group w-full py-3">
-        Submit Audit Request
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+      <Button
+        type="submit"
+        variant="gradient"
+        className="group w-full py-3"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Sending...
+          </>
+        ) : (
+          <>
+            Submit Audit Request
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </>
+        )}
       </Button>
     </form>
   );
 }
+
