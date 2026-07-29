@@ -47,7 +47,7 @@ export function WorkflowPreview() {
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-teal-500" />
             <span className="text-xs font-semibold tracking-wide text-slate-700 uppercase">
-              What Our Automation Does — Live Example
+              A Real Workflow, Running Live
             </span>
           </div>
           <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700">

@@ -7,27 +7,27 @@ export const processSteps: ProcessStep[] = [
     icon: Compass,
     title: "Discovery",
     description:
-      "Deep-dive audit of your operational stack, friction points, and growth bottlenecks. We map the architecture before writing a single line of code.",
+      "We spend time actually understanding your business — what's working, what's breaking, and where automation would save the most time. No guesswork.",
   },
   {
     number: "02",
     icon: PenTool,
     title: "Architect",
     description:
-      "Precision system design — n8n pipeline blueprints, dashboard wireframes, and integration schemas engineered for your specific B2B context.",
+      "We design the solution before building anything — workflow diagrams, screen layouts, and a clear plan you can approve before we write a single line of code.",
   },
   {
     number: "03",
     icon: Rocket,
     title: "Deploy",
     description:
-      "Production-grade deployment with operational telemetry, error handling, and documentation. Zero-downtime handoff to your team.",
+      "We ship it, test it, and hand it over with proper documentation. Your team can use it from day one, and we stay on call for any tweaks.",
   },
   {
     number: "04",
     icon: TrendingUp,
     title: "Scale",
     description:
-      "Continuous optimization loops, retention automation, and infrastructure scaling as your operations and revenue compound.",
+      "Once it's running, we help you grow it — adding new automations, improving what's there, and making sure the system scales as your business does.",
   },
 ];

@@ -18,7 +18,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     icon: Bot,
     title: "Intelligent AI Workflow Automation",
     description:
-      "Our core specialty — custom n8n production pipelines, WhatsApp Business API integrations, and LLM agent deployment that replace manual work with autonomous, reliable systems.",
+      "This is what we do best. We build n8n pipelines that connect your tools, automate repetitive tasks, and keep running 24/7 — with WhatsApp notifications, AI decision-making, and zero manual work.",
     tags: ["n8n", "LLM Agents", "WhatsApp API", "Primary Service"],
     featured: true,
   },
@@ -28,7 +28,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     icon: Globe,
     title: "Web Application Development",
     description:
-      "Full-stack web apps built with React, Next.js, and Python backends — from SaaS platforms and client portals to AI-integrated business tools, led by our Full-Stack & AI team.",
+      "Web apps that actually do something — SaaS products, client portals, AI-connected tools. Built end-to-end with React, Next.js, and Python.",
     tags: ["React", "Next.js", "Node.js"],
   },
   {
@@ -37,7 +37,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     icon: Smartphone,
     title: "Mobile Application Development",
     description:
-      "Native Android and Flutter apps with Jetpack Compose, Clean Architecture, and Play Store delivery — built by our Mobile Lead with 3+ years of production experience.",
+      "Android and Flutter apps that look great and actually get shipped. Our mobile lead handles everything from first build to Play Store release.",
     tags: ["React Native", "iOS", "Android"],
   },
   {
@@ -46,7 +46,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     icon: LayoutDashboard,
     title: "Custom Dashboards & Control Centers",
     description:
-      "Real-time Next.js dashboards with analytics, user intent logs, and operational telemetry — giving leadership full visibility into business performance.",
+      "Custom dashboards that show what's actually happening in your business — live data, team metrics, and the numbers that matter to leadership.",
     tags: ["Dashboards", "Analytics", "Telemetry"],
   },
   {
@@ -55,7 +55,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     icon: HeartPulse,
     title: "Operational Scaling & Optimization",
     description:
-      "Telehealth workflow automation, medical network retention loops, and B2B operations scaling — engineered for measurable ROI and long-term growth.",
+      "Already running? We help you scale it — automating the parts that break under growth, adding retention systems, and optimizing what's already working.",
     tags: ["Medical Tech", "B2B Scale", "ROI"],
   },
 ];
@@ -63,13 +63,13 @@ export const capabilityPillars: CapabilityPillar[] = [
 export const capabilityStats: StatItem[] = [
   { label: "Projects Delivered", value: "140+", icon: FolderCheck },
   { label: "Pipeline Uptime", value: "99.9%", icon: Activity },
-  { label: "Manual Work Eliminated", value: "87%", icon: Zap },
+  { label: "Avg. Less Manual Work", value: "~80%", icon: Zap },
 ];
 
 export const capabilityExtras = [
   {
     icon: Workflow,
     title: "n8n Production Pipelines",
-    text: "Battle-tested automation with error handling, retries, and full observability.",
+    text: "Automation that recovers from errors automatically, retries failed steps, and alerts you when something needs attention.",
   },
 ] as const;

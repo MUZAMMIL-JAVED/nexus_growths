@@ -45,7 +45,7 @@ export function Header() {
             variant="gradient"
             className="px-3 py-1.5 text-xs sm:px-5 sm:py-2.5 sm:text-sm whitespace-nowrap"
           >
-            Book Audit
+            Get Free Audit
             <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           </Button>
 
@@ -84,7 +84,7 @@ export function Header() {
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full btn-gradient px-5 py-2.5 text-sm font-semibold text-white"
               >
-                Book Audit
+                Get Free Audit
               </a>
             </nav>
           </motion.div>

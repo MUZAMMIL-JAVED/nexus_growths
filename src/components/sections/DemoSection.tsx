@@ -14,7 +14,7 @@ export function DemoSection() {
     <section id="demo" className="relative bg-white py-20">
       <Container>
         <SectionHeading
-          eyebrow="Case Study"
+          eyebrow="Real Client Work"
           title="See a Real Automation in Action"
           description="A 90-second walkthrough of how we optimized a telehealth clinic workflow — from booking to follow-up."
         />

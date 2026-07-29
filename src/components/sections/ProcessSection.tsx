@@ -7,9 +7,9 @@ export function ProcessSection() {
     <section id="process" className="bg-slate-50 py-28">
       <Container>
         <SectionHeading
-          eyebrow="Our Process"
-          title="A Frictionless Partnership Method"
-          description="From first audit to autonomous operations — a structured engagement model built for enterprise velocity and precision."
+          eyebrow="How We Work"
+          title="How We Work Together"
+          description="Four clear steps from your first conversation to a system that runs itself."
         />
 
         <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">

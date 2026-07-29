@@ -11,9 +11,9 @@ export function CapabilitiesSection() {
     <section id="capabilities" className="bg-slate-50 py-24">
       <Container>
         <SectionHeading
-          eyebrow="Our Services"
-          title="Full-Stack Solutions for Modern Businesses"
-          description="AI automation is our flagship — backed by dedicated web and mobile teams ready to build your complete digital infrastructure."
+          eyebrow="What We Build"
+          title="Automation, Apps, and Everything In Between"
+          description="Automation is what we're known for. And when you need a full product — web app, mobile app, or custom dashboard — the team's ready for that too."
         />
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">

@@ -51,11 +51,11 @@ export function ContactForm() {
           <Send className="h-6 w-6 text-teal-600" />
         </div>
         <h3 className="mb-2 text-xl font-semibold text-slate-900">
-          Message Received
+          Got it — we'll be in touch!
         </h3>
         <p className="text-sm text-slate-600">
-          We&apos;ll be in touch within 24 hours to schedule your architecture
-          audit.
+          Expect a reply within 24 hours. We'll go through what you need and
+          figure out the best next step together.
         </p>
       </div>
     );
@@ -126,7 +126,7 @@ export function ContactForm() {
 
       <div className="mb-6">
         <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-slate-700">
-          Operational Challenge
+          What can we help you with?
         </label>
         <textarea
           id="message"
@@ -136,7 +136,7 @@ export function ContactForm() {
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className={`${inputClass} resize-none`}
-          placeholder="Describe the friction points in your current operations..."
+          placeholder="Tell us what you need or what's slowing you down..."
         />
       </div>
 
@@ -153,7 +153,7 @@ export function ContactForm() {
           </>
         ) : (
           <>
-            Submit Audit Request
+            Send My Request
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </>
         )}

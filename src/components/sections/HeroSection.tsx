@@ -32,8 +32,8 @@ export function HeroSection() {
               transition={{ delay: 0.15 }}
               className="mb-5 text-3xl leading-[1.12] font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] 2xl:text-[4.25rem]"
             >
-              Let&apos;s Build an Automation System That Actually Runs Your
-              Business
+              We Build Automation That Handles the Work — So You Don&apos;t Have
+              To
             </motion.h1>
 
             <motion.p
@@ -42,9 +42,9 @@ export function HeroSection() {
               transition={{ delay: 0.2 }}
               className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg xl:max-w-3xl xl:text-xl"
             >
-              Tell us what you want to automate or build — we&apos;ll architect
-              intelligent n8n pipelines, full-stack web platforms, and mobile
-              apps that eliminate manual work and scale your revenue.
+              Tell us what&apos;s slowing you down — we&apos;ll build the
+              automation, web platform, or mobile app that handles it. Clean,
+              reliable, and actually maintained after launch.
             </motion.p>
 
             <motion.div
@@ -54,10 +54,10 @@ export function HeroSection() {
               className="mb-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
             >
               <Button href="#capabilities" variant="secondary" className="px-7 py-3">
-                Explore Our Services
+                See What We Build
               </Button>
               <Button href="#contact" variant="gradient" className="px-7 py-3">
-                Book a Free Architecture Audit
+                Book a Free Strategy Call
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </motion.div>

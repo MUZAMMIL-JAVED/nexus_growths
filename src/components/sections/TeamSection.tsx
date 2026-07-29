@@ -9,9 +9,9 @@ export function TeamSection() {
     <section id="team" className="bg-slate-50 py-24">
       <Container>
         <SectionHeading
-          eyebrow="Our Team"
+          eyebrow="Who You'll Work With"
           title="The People Behind NexusGrowths"
-          description="Led by Muzammil Javed — with Hasnain Ali driving full-stack & AI delivery and M. Salman leading native Android and Flutter mobile development."
+          description="A small team that ships real products. Muzammil leads automation strategy, Hasnain builds the apps, and Salman handles everything mobile."
         />
 
         <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-3">

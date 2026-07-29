@@ -10,7 +10,7 @@ import {
 } from "../ui";
 
 const auditHighlights = [
-  "Free 30-minute architecture review",
+  "Free 30-minute strategy call",
   "Tailored automation roadmap",
   "Response within 24 hours",
 ];
@@ -77,7 +77,7 @@ export function ContactSection() {
           </div>
           <span className="flex items-center gap-2 text-sm text-slate-400">
             <MapPin className="h-3.5 w-3.5 shrink-0" />
-            Lahore, Pakistan · Serving global enterprises
+            Lahore, Pakistan · Working with clients worldwide
           </span>
         </motion.div>
       </Container>
