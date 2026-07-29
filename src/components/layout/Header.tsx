@@ -15,14 +15,14 @@ export function Header() {
       transition={{ duration: 0.5 }}
       className="fixed top-0 z-50 flex h-[70px] w-full items-center border-b border-slate-200/60 bg-[#f3f4f8]/85 backdrop-blur-xl"
     >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 xl:max-w-7xl 2xl:max-w-[1536px]">
-        <a href="#" className="flex items-center gap-3">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 sm:px-6 xl:max-w-7xl 2xl:max-w-[1536px]">
+        <a href="#" className="flex items-center gap-2 sm:gap-3 shrink-0">
           <img
             src={siteConfig.logo}
             alt={siteConfig.name}
-            className="h-8 w-8 rounded-md object-cover"
+            className="h-7 w-7 sm:h-8 sm:w-8 rounded-md object-cover"
           />
-          <span className="text-lg font-bold tracking-tight text-slate-900">
+          <span className="text-base sm:text-lg font-bold tracking-tight text-slate-900">
             Nexus<span className="text-slate-400">Growths</span>
           </span>
         </a>
@@ -39,16 +39,20 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <Button href="#contact" variant="gradient" className="hidden sm:inline-flex">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <Button
+            href="#contact"
+            variant="gradient"
+            className="px-3 py-1.5 text-xs sm:px-5 sm:py-2.5 sm:text-sm whitespace-nowrap"
+          >
             Book Audit
-            <ArrowRight className="h-3.5 w-3.5" />
+            <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
           </Button>
 
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className="flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 text-slate-600 md:hidden"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-slate-200 text-slate-600 md:hidden"
             aria-label="Toggle menu"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
