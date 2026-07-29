@@ -57,6 +57,13 @@ const handler: Handler = async (event: HandlerEvent) => {
 
   const recipientEmail = process.env.RECIPIENT_EMAIL || gmailUser;
 
+  // Diagnostic log (safe — only shows lengths, not actual values)
+  console.log("ENV check:", {
+    GMAIL_USER: gmailUser ? `${gmailUser.substring(0, 3)}...@... (len: ${gmailUser.length})` : "MISSING",
+    GMAIL_APP_PASSWORD: gmailPass ? `****** (len: ${gmailPass.length})` : "MISSING",
+    RECIPIENT_EMAIL: recipientEmail ? `${recipientEmail.substring(0, 3)}... (len: ${recipientEmail.length})` : "MISSING",
+  });
+
   // ── Parse & validate body ─────────────────────────────────────────
   let payload: unknown;
   try {
@@ -157,11 +164,15 @@ const handler: Handler = async (event: HandlerEvent) => {
       body: JSON.stringify({ success: true, message: "Email sent successfully" }),
     };
   } catch (err) {
-    console.error("Failed to send email:", err);
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.error("Failed to send email:", errorMessage);
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: "Failed to send email. Please try again later." }),
+      body: JSON.stringify({
+        error: "Failed to send email. Please try again later.",
+        debug: errorMessage,
+      }),
     };
   }
 };
