@@ -1,8 +1,8 @@
 # NexusGrowths — Marketing Site
 
-Official marketing website for [NexusGrowths](https://nexusgrowths.tech), a software studio specializing in AI workflow automation, full-stack web development, and mobile applications for B2B and healthcare operations.
+Official marketing website for [NexusGrowths](https://nexusgrowths.com), a software studio specializing in AI workflow automation, full-stack web development, and mobile applications for B2B and healthcare operations.
 
-**Live site:** [nexusgrowths.tech](https://nexusgrowths.tech)
+**Live site:** [nexusgrowths.com](https://nexusgrowths.com)
 
 ---
 
@@ -139,8 +139,8 @@ Ensure your host serves `index.html` for all routes if you add client-side routi
 
 ## Contact
 
-- **Website:** [nexusgrowths.tech](https://nexusgrowths.tech)
-- **Email:** [contact@nexusgrowths.tech](mailto:contact@nexusgrowths.tech)
+- **Website:** [nexusgrowths.com](https://nexusgrowths.com)
+- **Email:** [muzammil@nexusgrowths.com](mailto:muzammil@nexusgrowths.com)
 - **LinkedIn:** [NexusGrowths](https://www.linkedin.com/company/nexusgrowths/)
 
 ---

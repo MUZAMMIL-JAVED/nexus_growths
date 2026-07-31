@@ -101,7 +101,7 @@ const handler: Handler = async (event: HandlerEvent) => {
     <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); padding: 32px; border-radius: 12px 12px 0 0;">
         <h1 style="color: #2dd4bf; margin: 0; font-size: 22px;">New Audit Request</h1>
-        <p style="color: #94a3b8; margin: 8px 0 0; font-size: 14px;">Submitted via nexusgrowths.tech</p>
+        <p style="color: #94a3b8; margin: 8px 0 0; font-size: 14px;">Submitted via nexusgrowths.com</p>
       </div>
       <div style="background: #ffffff; padding: 32px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px;">
         <table style="width: 100%; border-collapse: collapse;">
@@ -144,7 +144,7 @@ const handler: Handler = async (event: HandlerEvent) => {
     message,
     "",
     "─".repeat(40),
-    "Sent from nexusgrowths.tech contact form",
+    "Sent from nexusgrowths.com contact form",
   ].join("\n");
 
   // ── Send email ────────────────────────────────────────────────────
