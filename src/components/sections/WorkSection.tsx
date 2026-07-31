@@ -102,7 +102,7 @@ export function WorkSection() {
       <Container>
         <SectionHeading
           eyebrow="Selected Work"
-          title="A Slice of 140+ Projects"
+          title="A Slice of our Projects"
           description="We don't list everything — just a few live products that show the range. Apps on the Play Store, platforms in production, and everything in between."
         />
 
