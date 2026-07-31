@@ -84,4 +84,39 @@ export const teamMembers: TeamMember[] = [
       },
     ],
   },
+  {
+    id: "wordpress-lead",
+    name: "Rimsha Bajwa",
+    role: "WordPress & WooCommerce Lead",
+    bio: "Rimsha leads all WordPress development at NexusGrowths — from custom themes and plugins to WooCommerce stores and Elementor builds. She handles everything from local dev on LocalWP to live deployment on cPanel.",
+    image: "/team/rimsha-bajwa.png",
+    imagePosition: "center 15%",
+    imageScale: 1.1,
+    linkedin: "https://www.linkedin.com/in/rimsha-bajwa/",
+    badge: "WordPress Lead",
+    tags: [
+      "WordPress",
+      "WooCommerce",
+      "Elementor",
+      "PHP",
+      "ACF",
+      "REST API",
+      "Custom Plugins",
+      "SEO",
+    ],
+    skillGroups: [
+      {
+        label: "WordPress & CMS",
+        items: ["Themes", "Plugins", "WooCommerce", "Elementor", "ACF", "CPT"],
+      },
+      {
+        label: "Backend & Dev",
+        items: ["PHP", "MySQL", "REST API", "AJAX", "Custom Hooks"],
+      },
+      {
+        label: "DevOps & SEO",
+        items: ["cPanel", "LocalWP", "Git", "SEO", "Security", "Performance"],
+      },
+    ],
+  },
 ];

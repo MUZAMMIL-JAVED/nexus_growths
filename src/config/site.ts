@@ -3,8 +3,8 @@ export const siteConfig = {
   tagline: "Intelligent Infrastructure",
   description:
     "We help businesses stop doing things manually — through automation, web apps, and mobile products that actually work after launch.",
-  website: "https://nexusgrowths.tech",
-  email: "contact@nexusgrowths.tech",
+  website: "https://nexusgrowths.com",
+  email: "muzammil@nexusgrowths.com",
   location: "Lahore, Pakistan — Working with clients worldwide",
   founded: 2023,
   industry: "Software Development",

@@ -75,7 +75,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="block text-sm text-slate-400 transition-colors hover:text-white"
               >
-                nexusgrowths.tech
+                nexusgrowths.com
               </a>
               <span className="flex items-center gap-2 text-sm text-slate-400">
                 <MapPin className="h-3.5 w-3.5 shrink-0" />
