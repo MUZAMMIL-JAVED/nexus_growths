@@ -11,10 +11,10 @@ export function TeamSection() {
         <SectionHeading
           eyebrow="Who You'll Work With"
           title="The People Behind NexusGrowths"
-          description="A small team that ships real products. Muzammil leads automation strategy, Hasnain builds the apps, and Salman handles everything mobile."
+          description="A small team that ships real products. Muzammil leads automation strategy, Hasnain builds the apps, Salman handles everything mobile, and Rimsha owns all things WordPress."
         />
 
-        <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {teamMembers.map((member, i) => (
             <motion.div
               key={member.id}
