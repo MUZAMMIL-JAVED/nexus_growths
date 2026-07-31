@@ -62,24 +62,27 @@ export function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20";
+    "w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-3 text-sm text-slate-900 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-teal-500 focus:bg-white focus:ring-2 focus:ring-teal-500/20 hover:border-slate-300";
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
+      className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-8 shadow-lg shadow-slate-200/60"
     >
+      {/* Subtle top accent line */}
+      <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-teal-500 via-emerald-400 to-teal-600 rounded-t-2xl" />
+
       {errorMessage && (
-        <div className="mb-5 flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4">
+        <div className="mb-5 flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4">
           <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
           <p className="text-sm text-red-700">{errorMessage}</p>
         </div>
       )}
 
-      <div className="mb-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-700">
-            Full Name
+          <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700">
+            Your Name
           </label>
           <input
             id="name"
@@ -89,12 +92,12 @@ export function ContactForm() {
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             className={inputClass}
-            placeholder="John Smith"
+            placeholder="e.g. Sarah Ahmed"
           />
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
-            Work Email
+          <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
+            Email Address
           </label>
           <input
             id="email"
@@ -104,14 +107,15 @@ export function ContactForm() {
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             className={inputClass}
-            placeholder="john@company.com"
+            placeholder="you@example.com"
           />
         </div>
       </div>
 
       <div className="mb-5">
-        <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-slate-700">
-          Company
+        <label htmlFor="company" className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-700">
+          Company or Project
+          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-normal text-slate-500">Optional</span>
         </label>
         <input
           id="company"
@@ -120,13 +124,13 @@ export function ContactForm() {
           value={form.company}
           onChange={(e) => setForm({ ...form, company: e.target.value })}
           className={inputClass}
-          placeholder="Your Company Ltd."
+          placeholder="Your business, brand, or personal project name"
         />
       </div>
 
-      <div className="mb-6">
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-slate-700">
-          What can we help you with?
+      <div className="mb-7">
+        <label htmlFor="message" className="mb-2 block text-sm font-semibold text-slate-700">
+          What do you need?
         </label>
         <textarea
           id="message"
@@ -136,14 +140,14 @@ export function ContactForm() {
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className={`${inputClass} resize-none`}
-          placeholder="Tell us what you need or what's slowing you down..."
+          placeholder="Describe your idea, project, or what's on your mind — no jargon needed!"
         />
       </div>
 
       <Button
         type="submit"
         variant="gradient"
-        className="group w-full py-3"
+        className="group w-full py-3.5 text-base font-semibold"
         disabled={isSubmitting}
       >
         {isSubmitting ? (
@@ -153,11 +157,15 @@ export function ContactForm() {
           </>
         ) : (
           <>
-            Send My Request
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            Send Message
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </>
         )}
       </Button>
+
+      <p className="mt-4 text-center text-xs text-slate-400">
+        We reply within 24 hours · No spam, ever
+      </p>
     </form>
   );
 }
