@@ -22,7 +22,7 @@ export function Header() {
             alt={siteConfig.name}
             className="h-7 w-7 sm:h-8 sm:w-8 rounded-md object-cover"
           />
-          <span className="text-base sm:text-lg font-bold tracking-tight text-slate-900">
+          <span className="text-sm sm:text-base lg:text-lg font-bold tracking-tight text-slate-900">
             Nexus<span className="text-slate-400">Growths</span>
           </span>
         </a>
@@ -40,10 +40,11 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Hidden on xs (< 480px), shown from xs-plus upward */}
           <Button
             href="#contact"
             variant="gradient"
-            className="px-3 py-1.5 text-xs sm:px-5 sm:py-2.5 sm:text-sm whitespace-nowrap"
+            className="hidden min-[480px]:inline-flex px-3 py-1.5 text-xs sm:px-5 sm:py-2.5 sm:text-sm whitespace-nowrap"
           >
             Get Free Audit
             <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
