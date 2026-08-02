@@ -16,7 +16,8 @@
     "lucide-react": "^1.21.0",
     "nodemailer": "^9.0.3",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react-dom": "^19.2.6",
+    "resend": "^6.18.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -35,6 +36,7 @@
     "tailwindcss": "^4.3.1",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
+    "vercel": "^58.4.4",
     "vite": "^8.0.12"
   }
 }

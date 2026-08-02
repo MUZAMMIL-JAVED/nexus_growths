@@ -41,27 +41,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   // ── Validate environment ──────────────────────────────────────────
-  const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
-  const smtpPort = parseInt(process.env.SMTP_PORT || "587", 10);
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailPass = process.env.GMAIL_APP_PASSWORD;
 
-  if (!smtpUser || !smtpPass) {
-    console.error("Missing SMTP_USER or SMTP_PASS env variables");
+  if (!gmailUser || !gmailPass) {
+    console.error("Missing GMAIL_USER or GMAIL_APP_PASSWORD env variables");
     return res.status(500).json({ error: "Server email configuration error" });
   }
 
-  const recipientEmail = process.env.RECIPIENT_EMAIL || smtpUser;
+  const recipientEmail = process.env.RECIPIENT_EMAIL || gmailUser;
 
   // Diagnostic log (safe — only shows lengths, not actual values)
   console.log("ENV check:", {
-    SMTP_HOST: smtpHost,
-    SMTP_PORT: smtpPort,
-    SMTP_USER: smtpUser ? `${smtpUser.substring(0, 3)}...@... (len: ${smtpUser.length})` : "MISSING",
-    SMTP_PASS: smtpPass ? `****** (len: ${smtpPass.length})` : "MISSING",
-    RECIPIENT_EMAIL: recipientEmail
-      ? `${recipientEmail.substring(0, 3)}... (len: ${recipientEmail.length})`
-      : "MISSING",
+    GMAIL_USER: gmailUser ? `${gmailUser.substring(0, 3)}...@... (len: ${gmailUser.length})` : "MISSING",
+    GMAIL_APP_PASSWORD: gmailPass ? `****** (len: ${gmailPass.length})` : "MISSING",
+    RECIPIENT_EMAIL: recipientEmail ? `${recipientEmail.substring(0, 3)}... (len: ${recipientEmail.length})` : "MISSING",
   });
 
   // ── Parse & validate body ─────────────────────────────────────────
@@ -75,27 +69,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { name, email, company, message } = payload;
 
-  // ── Build email ───────────────────────────────────────────────────
+  // ── Build transporter ─────────────────────────────────────────────
   const transporter = nodemailer.createTransport({
-    host: smtpHost,
-    port: smtpPort,
-    secure: smtpPort === 465, // true for SSL (465), false for STARTTLS (587)
+    service: "gmail",
     auth: {
-      user: smtpUser,
-      pass: smtpPass,
-    },
-    connectionTimeout: 10000,  // 10s — Vercel functions time out fast
-    greetingTimeout: 10000,
-    socketTimeout: 15000,
-    tls: {
-      rejectUnauthorized: false, // allow Hostinger self-signed cert variants
+      user: gmailUser,
+      pass: gmailPass,
     },
   });
 
   const htmlBody = `
     <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); padding: 32px; border-radius: 12px 12px 0 0;">
-        <h1 style="color: #2dd4bf; margin: 0; font-size: 22px;">New Audit Request</h1>
+        <h1 style="color: #2dd4bf; margin: 0; font-size: 22px;">New Contact Message</h1>
         <p style="color: #94a3b8; margin: 8px 0 0; font-size: 14px;">Submitted via nexusgrowths.com</p>
       </div>
       <div style="background: #ffffff; padding: 32px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 12px 12px;">
@@ -105,7 +91,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #0f172a; font-size: 14px; font-weight: 500;">${name}</td>
           </tr>
           <tr>
-            <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #64748b; font-size: 13px;">Work Email</td>
+            <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #64748b; font-size: 13px;">Email</td>
             <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #0f172a; font-size: 14px;">
               <a href="mailto:${email}" style="color: #0d9488; text-decoration: none;">${email}</a>
             </td>
@@ -122,14 +108,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           </div>
         </div>
         <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center;">
-          <p style="color: #94a3b8; font-size: 12px; margin: 0;">This email was sent from the Nexus Growths contact form.</p>
+          <p style="color: #94a3b8; font-size: 12px; margin: 0;">Sent from the Nexus Growths contact form</p>
         </div>
       </div>
     </div>
   `;
 
   const textBody = [
-    "NEW AUDIT REQUEST — Nexus Growths",
+    "NEW CONTACT MESSAGE — Nexus Growths",
     "─".repeat(40),
     `Name:    ${name}`,
     `Email:   ${email}`,
@@ -145,7 +131,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // ── Send email ────────────────────────────────────────────────────
   try {
     await transporter.sendMail({
-      from: `"Nexus Growths" <${smtpUser}>`,
+      from: `"Nexus Growths" <${gmailUser}>`,
       to: recipientEmail,
       replyTo: email,
       subject: `New message from ${name}${company ? ` — ${company}` : ""}`,
