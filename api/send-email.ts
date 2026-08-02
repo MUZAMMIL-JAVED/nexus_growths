@@ -42,7 +42,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // ── Validate environment ──────────────────────────────────────────
   const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
-  const smtpPort = parseInt(process.env.SMTP_PORT || "465", 10);
+  const smtpPort = parseInt(process.env.SMTP_PORT || "587", 10);
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
 
@@ -79,10 +79,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: smtpPort,
-    secure: smtpPort === 465, // true for port 465 (SSL), false for 587 (STARTTLS)
+    secure: smtpPort === 465, // true for SSL (465), false for STARTTLS (587)
     auth: {
       user: smtpUser,
       pass: smtpPass,
+    },
+    connectionTimeout: 10000,  // 10s — Vercel functions time out fast
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+    tls: {
+      rejectUnauthorized: false, // allow Hostinger self-signed cert variants
     },
   });
 
