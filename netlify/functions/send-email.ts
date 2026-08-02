@@ -43,11 +43,13 @@ const handler: Handler = async (event: HandlerEvent) => {
   }
 
   // ── Validate environment ──────────────────────────────────────────
-  const gmailUser = process.env.GMAIL_USER;
-  const gmailPass = process.env.GMAIL_APP_PASSWORD;
+  const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
+  const smtpPort = parseInt(process.env.SMTP_PORT || "465", 10);
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
 
-  if (!gmailUser || !gmailPass) {
-    console.error("Missing GMAIL_USER or GMAIL_APP_PASSWORD env variables");
+  if (!smtpUser || !smtpPass) {
+    console.error("Missing SMTP_USER or SMTP_PASS env variables");
     return {
       statusCode: 500,
       headers,
@@ -55,12 +57,14 @@ const handler: Handler = async (event: HandlerEvent) => {
     };
   }
 
-  const recipientEmail = process.env.RECIPIENT_EMAIL || gmailUser;
+  const recipientEmail = process.env.RECIPIENT_EMAIL || smtpUser;
 
   // Diagnostic log (safe — only shows lengths, not actual values)
   console.log("ENV check:", {
-    GMAIL_USER: gmailUser ? `${gmailUser.substring(0, 3)}...@... (len: ${gmailUser.length})` : "MISSING",
-    GMAIL_APP_PASSWORD: gmailPass ? `****** (len: ${gmailPass.length})` : "MISSING",
+    SMTP_HOST: smtpHost,
+    SMTP_PORT: smtpPort,
+    SMTP_USER: smtpUser ? `${smtpUser.substring(0, 3)}...@... (len: ${smtpUser.length})` : "MISSING",
+    SMTP_PASS: smtpPass ? `****** (len: ${smtpPass.length})` : "MISSING",
     RECIPIENT_EMAIL: recipientEmail ? `${recipientEmail.substring(0, 3)}... (len: ${recipientEmail.length})` : "MISSING",
   });
 
@@ -90,10 +94,12 @@ const handler: Handler = async (event: HandlerEvent) => {
 
   // ── Build email ───────────────────────────────────────────────────
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: smtpHost,
+    port: smtpPort,
+    secure: smtpPort === 465, // true for port 465 (SSL), false for 587 (STARTTLS)
     auth: {
-      user: gmailUser,
-      pass: gmailPass,
+      user: smtpUser,
+      pass: smtpPass,
     },
   });
 
@@ -150,7 +156,7 @@ const handler: Handler = async (event: HandlerEvent) => {
   // ── Send email ────────────────────────────────────────────────────
   try {
     await transporter.sendMail({
-      from: `"Nexus Growths Website" <${gmailUser}>`,
+      from: `"Nexus Growths" <${smtpUser}>`,
       to: recipientEmail,
       replyTo: email,
       subject: `Audit Request from ${name}${company ? ` — ${company}` : ""}`,
