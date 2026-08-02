@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block access to API endpoints
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://nexusgrowths.com/sitemap.xml

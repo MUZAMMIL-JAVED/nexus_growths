@@ -2,19 +2,232 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
+
+    <!-- ═══════════════════════════════════════════
+         FAVICON & THEME
+    ════════════════════════════════════════════ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/jpeg" href="/logo.jpeg" />
+    <link rel="apple-touch-icon" href="/logo.jpeg" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- ═══════════════════════════════════════════
+         VIEWPORT & COMPATIBILITY
+    ════════════════════════════════════════════ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- ═══════════════════════════════════════════
+         PRIMARY META TAGS
+    ════════════════════════════════════════════ -->
+    <title>NexusGrowths | AI Automation &amp; Software Development Agency</title>
     <meta
       name="description"
-      content="NexusGrowths — Elite systems architecture and intelligent AI automation for enterprise B2B operations scaling."
+      content="NexusGrowths builds AI automation systems, web apps, and mobile products that handle your manual work — so you can focus on growth. Based in Lahore, working with clients worldwide."
     />
+    <meta
+      name="keywords"
+      content="AI automation, n8n workflows, web development, mobile app development, LLM agents, business automation, software development agency, Lahore"
+    />
+    <meta name="author" content="NexusGrowths" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- ═══════════════════════════════════════════
+         CANONICAL URL
+    ════════════════════════════════════════════ -->
+    <link rel="canonical" href="https://nexusgrowths.com/" />
+
+    <!-- ═══════════════════════════════════════════
+         OPEN GRAPH / FACEBOOK
+    ════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NexusGrowths" />
+    <meta property="og:title" content="NexusGrowths | AI Automation &amp; Software Development Agency" />
+    <meta
+      property="og:description"
+      content="NexusGrowths builds AI automation systems, web apps, and mobile products that handle your manual work — so you can focus on growth. Based in Lahore, working with clients worldwide."
+    />
+    <meta property="og:url" content="https://nexusgrowths.com/" />
+    <meta property="og:image" content="https://nexusgrowths.com/logo.jpeg" />
+    <meta property="og:image:alt" content="NexusGrowths — AI Automation &amp; Software Development" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ═══════════════════════════════════════════
+         TWITTER CARD
+    ════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NexusGrowths | AI Automation &amp; Software Development Agency" />
+    <meta
+      name="twitter:description"
+      content="NexusGrowths builds AI automation systems, web apps, and mobile products that handle your manual work — so you can focus on growth."
+    />
+    <meta name="twitter:image" content="https://nexusgrowths.com/logo.jpeg" />
+    <meta name="twitter:image:alt" content="NexusGrowths — AI Automation &amp; Software Development" />
+    <meta name="twitter:site" content="@nexusgrowths" />
+    <meta name="twitter:creator" content="@nexusgrowths" />
+
+    <!-- ═══════════════════════════════════════════
+         GEO / LOCAL SEO
+    ════════════════════════════════════════════ -->
+    <meta name="geo.region" content="PK-PB" />
+    <meta name="geo.placename" content="Lahore, Pakistan" />
+
+    <!-- ═══════════════════════════════════════════
+         STRUCTURED DATA — JSON-LD
+    ════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nexusgrowths.com/#organization",
+          "name": "NexusGrowths",
+          "url": "https://nexusgrowths.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nexusgrowths.com/logo.jpeg",
+            "width": 400,
+            "height": 400
+          },
+          "description": "NexusGrowths builds AI automation systems, web apps, and mobile products that handle manual business operations — so teams can focus on growth.",
+          "foundingDate": "2023",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lahore",
+            "addressCountry": "PK"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "contact@nexusgrowths.com",
+            "availableLanguage": "English"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/nexusgrowths/"
+          ],
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": 3
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nexusgrowths.com/#website",
+          "url": "https://nexusgrowths.com",
+          "name": "NexusGrowths",
+          "description": "AI Automation &amp; Software Development Agency",
+          "publisher": {
+            "@id": "https://nexusgrowths.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://nexusgrowths.com/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nexusgrowths.com/#webpage",
+          "url": "https://nexusgrowths.com/",
+          "name": "NexusGrowths | AI Automation &amp; Software Development Agency",
+          "isPartOf": {
+            "@id": "https://nexusgrowths.com/#website"
+          },
+          "about": {
+            "@id": "https://nexusgrowths.com/#organization"
+          },
+          "description": "NexusGrowths builds AI automation systems, web apps, and mobile products that handle your manual work — so you can focus on growth.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://nexusgrowths.com/"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://nexusgrowths.com/#service",
+          "name": "NexusGrowths",
+          "url": "https://nexusgrowths.com",
+          "description": "AI automation, web development, and mobile app development for businesses ready to scale.",
+          "provider": {
+            "@id": "https://nexusgrowths.com/#organization"
+          },
+          "areaServed": "Worldwide",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Software Development &amp; Automation Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Automation",
+                  "description": "n8n workflows, LLM agents, and intelligent automation systems that eliminate manual business operations."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Web Development",
+                  "description": "Custom web applications, dashboards, and SaaS platforms built with modern frameworks."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Mobile App Development",
+                  "description": "Cross-platform mobile applications for Android and iOS."
+                }
+              }
+            ]
+          },
+          "email": "contact@nexusgrowths.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lahore",
+            "addressCountry": "PK"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://nexusgrowths.com/#founder",
+          "name": "Muzammil Javed",
+          "jobTitle": "Founder & AI Automation Engineer",
+          "worksFor": {
+            "@id": "https://nexusgrowths.com/#organization"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/muzammil-javed-655297203/"
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════
+         FONTS — PRECONNECT FOR PERFORMANCE
+    ════════════════════════════════════════════ -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>NexusGrowths | Intelligent Infrastructure</title>
   </head>
   <body>
     <div id="root"></div>

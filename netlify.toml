@@ -3,7 +3,44 @@
   publish = "dist"
   functions = "netlify/functions"
 
+# ── API proxy ──────────────────────────────────────────
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+# ── Canonical: redirect www → non-www ─────────────────
+[[redirects]]
+  from = "https://www.nexusgrowths.com/*"
+  to = "https://nexusgrowths.com/:splat"
+  status = 301
+  force = true
+
+# ── Canonical: redirect http → https ──────────────────
+[[redirects]]
+  from = "http://nexusgrowths.com/*"
+  to = "https://nexusgrowths.com/:splat"
+  status = 301
+  force = true
+
+# ── SPA fallback ──────────────────────────────────────
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# ── sitemap.xml content-type header ───────────────────
+[[headers]]
+  for = "/sitemap.xml"
+
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+
+# ── robots.txt content-type header ────────────────────
+[[headers]]
+  for = "/robots.txt"
+
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
