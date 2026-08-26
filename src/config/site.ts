@@ -8,7 +8,7 @@ export const siteConfig = {
   location: "Lahore, Pakistan — Working with clients worldwide",
   founded: 2023,
   industry: "Software Development",
-  logo: "/logo.jpeg",
+  logo: "/logo-icon.png",
   stats: {
     teamSize: "3 specialists",
     projectsDelivered: "140+ projects delivered",
