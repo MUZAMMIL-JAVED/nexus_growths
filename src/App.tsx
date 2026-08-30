@@ -1,29 +1,15 @@
-import { Header, Footer } from "./components/layout";
-import {
-  HeroSection,
-  CapabilitiesSection,
-  TeamSection,
-  DemoSection,
-  WorkSection,
-  ProcessSection,
-  ContactSection,
-} from "./components/sections";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <HeroSection />
-        <CapabilitiesSection />
-        <TeamSection />
-        <DemoSection />
-        <WorkSection />
-        <ProcessSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

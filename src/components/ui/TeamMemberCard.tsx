@@ -1,10 +1,11 @@
+import { ArrowUpRight } from "lucide-react";
 import { LinkedInIcon } from "./LinkedInIcon";
 import type { TeamMember } from "../../types";
-import { Tag } from "./Tag";
 import { cn } from "../../lib/cn";
 
 interface TeamMemberCardProps {
   member: TeamMember;
+  onView: (member: TeamMember) => void;
 }
 
 function Avatar({ member }: { member: TeamMember }) {
@@ -37,17 +38,13 @@ function Avatar({ member }: { member: TeamMember }) {
 
 function badgeStyles(badge?: string) {
   if (badge === "Founder") return "bg-teal-100 text-teal-700";
+  if (badge === "Technical Co-Founder") return "bg-slate-100 text-slate-700";
   if (badge === "Full-Stack & AI Lead") return "bg-blue-100 text-blue-700";
   if (badge === "Mobile Lead") return "bg-violet-100 text-violet-700";
   return "bg-slate-100 text-slate-600";
 }
 
-export function TeamMemberCard({ member }: TeamMemberCardProps) {
-  const displayTags =
-    member.skillGroups && member.skillGroups.length > 0
-      ? member.skillGroups.flatMap((g) => g.items).slice(0, 8)
-      : member.tags;
-
+export function TeamMemberCard({ member, onView }: TeamMemberCardProps) {
   return (
     <article
       className={cn(
@@ -98,37 +95,23 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
 
       <h3 className="mb-1 text-lg font-bold text-slate-900">{member.name}</h3>
       <p className="mb-3 text-sm font-medium text-teal-700">{member.role}</p>
-      <p className="mb-5 flex-1 text-sm leading-relaxed text-slate-600">
+      <p className="mb-5 flex-1 text-sm leading-relaxed text-slate-600 line-clamp-4">
         {member.bio}
       </p>
 
-      {member.skillGroups ? (
-        <div className="space-y-3">
-          {member.skillGroups.map((group) => (
-            <div key={group.label}>
-              <p className="mb-1.5 text-[11px] font-semibold tracking-wider text-slate-400 uppercase">
-                {group.label}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {group.items.map((item) => (
-                  <Tag
-                    key={item}
-                    className="transition-colors group-hover:border-slate-300"
-                  >
-                    {item}
-                  </Tag>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="flex flex-wrap gap-2">
-          {displayTags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </div>
-      )}
+      <button
+        type="button"
+        onClick={() => onView(member)}
+        className={cn(
+          "inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200",
+          member.featured
+            ? "btn-gradient text-white shadow-sm hover:shadow-md hover:brightness-105"
+            : "border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+        )}
+      >
+        View Profile
+        <ArrowUpRight className="h-3.5 w-3.5" />
+      </button>
     </article>
   );
 }

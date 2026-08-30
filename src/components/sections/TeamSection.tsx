@@ -1,17 +1,28 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { siteConfig } from "../../config/site";
 import { teamMembers } from "../../constants/team";
-import { Button, Container, LinkedInIcon, SectionHeading, TeamMemberCard } from "../ui";
+import type { TeamMember } from "../../types";
+import {
+  Button,
+  Container,
+  LinkedInIcon,
+  SectionHeading,
+  TeamMemberCard,
+  TeamMemberModal,
+} from "../ui";
 
 export function TeamSection() {
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+
   return (
-    <section id="team" className="bg-slate-50 py-24">
+    <section id="team" className="bg-slate-50 py-7">
       <Container>
         <SectionHeading
           eyebrow="Who You'll Work With"
           title="The People Behind NexusGrowths"
-          description="A small team that ships real products. Muzammil leads automation strategy, Hasnain builds the apps, Salman handles everything mobile, and Rimsha owns all things WordPress."
+          description="A small team that ships real products. Muzammil leads automation strategy, Hasnain builds the apps, Muhammad Salman handles everything mobile, and Rimsha owns all things WordPress."
         />
 
         <div className="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -23,7 +34,7 @@ export function TeamSection() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.1 }}
             >
-              <TeamMemberCard member={member} />
+              <TeamMemberCard member={member} onView={setSelectedMember} />
             </motion.div>
           ))}
         </div>
@@ -57,6 +68,11 @@ export function TeamSection() {
           </Button>
         </motion.div>
       </Container>
+
+      <TeamMemberModal
+        member={selectedMember}
+        onClose={() => setSelectedMember(null)}
+      />
     </section>
   );
 }

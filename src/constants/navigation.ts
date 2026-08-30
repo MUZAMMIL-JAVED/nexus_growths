@@ -1,11 +1,11 @@
 import type { NavLink } from "../types";
 
 export const navLinks: NavLink[] = [
-  { href: "#capabilities", label: "Services" },
-  { href: "#team", label: "Team" },
-  { href: "#demo", label: "Work" },
-  { href: "#process", label: "Process" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#capabilities", label: "Services" },
+  { href: "/#team", label: "Team" },
+  { href: "/#work", label: "Work" },
+  { href: "/#process", label: "Process" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export const footerLinks = {
