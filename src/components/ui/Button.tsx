@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { cn } from "../../lib/cn";
 
 interface ButtonProps {
   children: ReactNode;
   href?: string;
+  to?: string;
   variant?: "primary" | "secondary" | "ghost" | "gradient";
   className?: string;
   onClick?: () => void;
@@ -25,6 +27,7 @@ const variants = {
 export function Button({
   children,
   href,
+  to,
   variant = "primary",
   className,
   onClick,
@@ -37,6 +40,14 @@ export function Button({
     disabled && "opacity-60 cursor-not-allowed",
     className
   );
+
+  if (to) {
+    return (
+      <Link to={to} className={classes}>
+        {children}
+      </Link>
+    );
+  }
 
   if (href) {
     const isExternal = href.startsWith("http");

@@ -8,7 +8,7 @@ import { Card, Container, SectionHeading, Tag } from "../ui";
 
 export function CapabilitiesSection() {
   return (
-    <section id="capabilities" className="bg-slate-50 py-24">
+    <section id="capabilities" className="bg-slate-50 py-7">
       <Container>
         <SectionHeading
           eyebrow="What We Build"

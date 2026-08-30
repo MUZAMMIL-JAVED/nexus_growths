@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { siteConfig } from "../../config/site";
@@ -16,7 +17,7 @@ export function Header() {
       className="fixed top-0 z-50 flex h-[70px] w-full items-center border-b border-slate-200/60 bg-[#f3f4f8]/85 backdrop-blur-xl"
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 sm:px-6 xl:max-w-7xl 2xl:max-w-[1536px]">
-        <a href="#" className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <Link to="/" className="flex items-center gap-2 sm:gap-3 shrink-0">
           <img
             src={siteConfig.logo}
             alt={siteConfig.name}
@@ -25,7 +26,7 @@ export function Header() {
           <span className="text-sm sm:text-base lg:text-lg font-bold tracking-tight text-slate-900">
             Nexus<span className="text-slate-400">Growths</span>
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
@@ -42,7 +43,7 @@ export function Header() {
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Hidden on xs (< 480px), shown from xs-plus upward */}
           <Button
-            href="#contact"
+            to="/#contact"
             variant="gradient"
             className="hidden min-[480px]:inline-flex px-3 py-1.5 text-xs sm:px-5 sm:py-2.5 sm:text-sm whitespace-nowrap"
           >
@@ -81,7 +82,7 @@ export function Header() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full btn-gradient px-5 py-2.5 text-sm font-semibold text-white"
               >
