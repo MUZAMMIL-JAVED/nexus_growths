@@ -17,7 +17,7 @@ const auditHighlights = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="bg-white py-24 md:py-28">
+    <section id="contact" className="bg-white py-7 md:py-8">
       <Container>
         <SectionHeading
           eyebrow="Ready to Work Together"

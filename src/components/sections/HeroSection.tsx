@@ -5,7 +5,7 @@ import { Button, Container, TrustBar, WorkflowPreview } from "../ui";
 
 export function HeroSection() {
   return (
-    <section className="relative pt-24 pb-12">
+    <section className="relative pt-24 pb-3.5">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

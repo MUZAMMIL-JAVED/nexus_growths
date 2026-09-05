@@ -11,7 +11,7 @@ const demoHighlights = [
 
 export function DemoSection() {
   return (
-    <section id="demo" className="relative bg-white py-20">
+    <section id="demo" className="relative bg-white py-6">
       <Container>
         <SectionHeading
           eyebrow="Real Client Work"

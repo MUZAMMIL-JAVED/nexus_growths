@@ -7,4 +7,8 @@ export { Tag } from "./Tag";
 export { TrustBar } from "./TrustBar";
 export { LinkedInIcon } from "./LinkedInIcon";
 export { TeamMemberCard } from "./TeamMemberCard";
+export { TeamMemberModal } from "./TeamMemberModal";
+export { ImageCarousel } from "./ImageCarousel";
+export { TimelineCards } from "./TimelineCards";
+export type { TimelineCardItem } from "./TimelineCards";
 export { WorkflowPreview } from "./WorkflowPreview";
